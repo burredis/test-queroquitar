@@ -1,0 +1,14 @@
+version: '3.7'
+services:
+  queroquitar:
+    container_name: bruno_queroquitar
+    build:
+      context: ./
+      args: 
+        app_env: development
+    ports:
+      - 8000:8000
+    volumes:
+      - ./:/go/src/test/queroquitar
+    environment:
+      - GIPHY_API_KEY=GcPEQKkMVWJvuTzB4BEPeIo1Mg1UnOtu
