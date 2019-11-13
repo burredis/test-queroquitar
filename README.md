@@ -8,6 +8,7 @@ Para a instalação do projeto execute os comandos a seguir:
 
     mkdir $GOPATH/src/test/queroquitar
 
+
     git clone git@github.com:burredis/test-queroquitar.git
 
 ## Utilização
@@ -24,8 +25,11 @@ Acessar a URL via browser:
     http://localhost:8000/?name={VALUE}
 
   Querystring:
-    * name: Nome para saudação
+    - name: Nome para saudação
 
-## Dependências
-    https://echo.labstack.com/
-    https://github.com/sanzaru/go-giphy
+## TESTE
+Para testar execute os comandos a segui:
+
+    GIPHY_API_KEY={VALUE} go test -timeout 30s test/queroquitar/server
+
+    GIPHY_API_KEY={VALUE} go test -timeout 30s test/queroquitar/giphy

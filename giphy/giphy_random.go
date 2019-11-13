@@ -7,8 +7,8 @@ import (
 	libgiphy "github.com/sanzaru/go-giphy"
 )
 
-// GetRandomGif return random gif
-func GetRandomGif(t string) (string, error) {
+// GetRandom return random gif
+func GetRandom(t string) (string, error) {
 	giphy := libgiphy.NewGiphy(os.Getenv("GIPHY_API_KEY"))
 
 	random, err := giphy.GetRandom(t)

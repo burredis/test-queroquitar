@@ -2,9 +2,7 @@ package main
 
 import (
 	"io"
-	"log"
-	"net/http"
-	"test/queroquitar/giphy"
+	"test/queroquitar/server"
 	"text/template"
 
 	"github.com/labstack/echo"
@@ -33,19 +31,7 @@ func main() {
 	}
 	e.Renderer = renderer
 
-	e.GET("/", func(c echo.Context) error {
-		qname := c.QueryParam("name")
-
-		img, err := giphy.GetRandomGif("hello")
-		if err != nil {
-			log.Println("Giphy:", err)
-		}
-
-		return c.Render(http.StatusOK, "welcome.html", map[string]interface{}{
-			"name":  qname,
-			"image": img,
-		})
-	})
+	e.GET("/", server.WelcomeHTTPHandler)
 
 	e.Logger.Fatal(e.Start(":8000"))
 }
